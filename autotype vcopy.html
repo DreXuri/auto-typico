@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto type</title>
+</head>
+<body>
+    <div class="typing" style="font-weight: bold;">OKAY WEARs <span id="typing"> </span></div>
+</body>
+  <style>
+    * {
+      margin: 1;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+    .typing {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      letter-spacing: 0.5rem;
+      align-items: center;
+    }
+    .typing p {
+      font-weight: bold;
+    }
+    #typing {
+      font-weight: lighter;
+      color: tomato;
+    }
+    .button {
+      color: white;
+      background: tomato;
+    }
+  </style>
+</html>
+<script>
+    let displayField = document.getElementById('typing')
+    let arrayList= [' are trendy,', ' are smart,', ' are cool, ', ' and affordable.']
+   let  index = 0 /////first letter///
+   let word = 0; ////first word///
+
+   function type() {
+       if (index<arrayList[word].length) {
+           displayField.innerHTML = arrayList[word].slice (0, index + 1 )
+           index++;
+           setTimeout(type ,150)
+       }
+       else {
+           setTimeout(erase ,100)
+       }
+   }
+   function erase() {
+              if (index > 0) {
+           displayField.innerHTML = arrayList[word].substring(0, index -1)
+           index--;
+           setTimeout(erase ,250);
+       }
+       else{
+          word++;
+          if (word >= arrayList.length ) word = 0;
+        {
+        setTimeout(type ,1250);
+       }
+     }
+   }
+type();
+  
+    
+
+    // function type() {
+    //     word = sentences[index];
+    //     displayField.innerHTML+=word[index]
+    //     setTimeout(() => {
+    //         if(word[index+1]){
+    //             index++;
+    //             type()
+    //             {
+    //                 erase()
+    //             }
+    //         }
+    //     }, 200);
+    // }
+    // function erase() {
+    //    if (index > 0) {
+    //         displayField.innerHTML = arrayList[word].substring(0 , index -1);
+    //         index--;
+    //         index=0;
+    // }}
+    // type();
+</script>
